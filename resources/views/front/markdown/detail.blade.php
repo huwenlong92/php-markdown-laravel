@@ -10,6 +10,7 @@
     <link href="{{URL::asset('static/plugins/bootstrap-tree/css/bootstrap-treeview.min.css')}}" rel="stylesheet">
     {{--    <link href="{{URL::asset('static/plugins/markdown/css/mou.css')}}" rel="stylesheet">--}}
     <link href="{{URL::asset('static/plugins/markdown/css/themes/default.css')}}" rel="stylesheet">
+    <link rel="icon" href="http://md.henly.me/public/img/favicon.ico">
 </head>
 <body>
 
