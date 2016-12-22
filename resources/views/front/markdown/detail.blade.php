@@ -67,7 +67,8 @@
                 collapseIcon: "glyphicon glyphicon-folder-open",
                 highlightSelected: true,
                 enableLinks: true,
-                data: data
+                data: data,
+                level:1
             });
         }, 'json');
     });
