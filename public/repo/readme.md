@@ -3,19 +3,13 @@
 ---
 ## Intro ##
 
-基于php开发的一款在线编辑Markdown的在线笔记
-
-## Basic ##
-
-* __字体加粗__
-* _给我时间,我能走太空步_
-* `你们能看见我吗?`
-* 上面三傻B,就我是正常人
-* 我好像~~过时了~~!
-* 列表
-	1. 列表1
-	2. 列表2
-
+    基于php开发的一款在线编辑Markdown的在线笔记
+    
+        可用于平时写作,记录。。。
+        
+    
+    
+    
 ---
 ## 赋诗一首 ##
 
@@ -58,23 +52,8 @@ func main(){
 
 ## Image ##
 
-![Logo!](http://md.henly.me/public/img/logo.jpg "Logo") Excuse me ?? !
+![Logo!](http://desk.fd.zol-img.com.cn/t_s960x600c5/g4/M00/0D/01/Cg-4y1ULoXCII6fEAAeQFx3fsKgAAXCmAPjugYAB5Av166.jpg "Logo") Excuse me ?? !
 
-## Table ##
-
-First Header | Second Header | Third Header
------------- | ------------- | ------------
-Content Cell | Content Cell  | Content Cell
-Content Cell | Content Cell  | Content Cell
-
-
-## h2 ##
-
-### h3 ###
-
-#### h4 ####
-
-#### h5 ####
 
 ---
 
