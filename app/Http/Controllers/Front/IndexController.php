@@ -29,11 +29,19 @@ class IndexController extends Controller
     {
         $dir_list = HFile::getFileList([[
             'text' => "首页",
-            'href' => "/md?s=/readme.md",
+            'href' => urlencode("#/readme.md"),
             'icon' => "glyphicon glyphicon-file",
             'selectedIcon' => "glyphicon glyphicon-file",
         ]]);
         return json_encode($dir_list, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function info()
+    {
+        $filename = urldecode(Input::get('s'));
+        $md_text = HFile::getFileInfo("repo" . (str_replace("#", "", $filename)));
+        $html_text = (new \Parsedown())->text($md_text['content']);
+        return json_encode(['content' => $html_text], JSON_UNESCAPED_UNICODE);
     }
 
     public function repo()

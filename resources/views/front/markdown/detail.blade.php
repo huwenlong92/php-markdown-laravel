@@ -8,7 +8,7 @@
     <link href="{{URL::asset('static/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('static/plugins/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('static/plugins/bootstrap-tree/css/bootstrap-treeview.min.css')}}" rel="stylesheet">
-{{--    <link href="{{URL::asset('static/plugins/markdown/css/mou.css')}}" rel="stylesheet">--}}
+    {{--    <link href="{{URL::asset('static/plugins/markdown/css/mou.css')}}" rel="stylesheet">--}}
     <link href="{{URL::asset('static/plugins/markdown/css/themes/default.css')}}" rel="stylesheet">
 </head>
 <body>
@@ -60,17 +60,28 @@
 <script>
     hljs.initHighlightingOnLoad();
     $(function () {
+
         $.get('/dir', {}, function (data) {
             $('#treeview1').treeview({
                 color: "#428bca",
                 expandIcon: "glyphicon glyphicon-folder-close",
                 collapseIcon: "glyphicon glyphicon-folder-open",
-                highlightSelected: true,
                 enableLinks: true,
-                data: data,
-                level:1
+                data: data
             });
         }, 'json');
+
+        $(document).on('click', '.tree-a-link', function () {
+            var _data = $(this).attr('url-data');
+            if (_data != "#") {
+                $.get('/info', {s: _data}, function (data) {
+                    $('.content').empty();
+                    $('.content').append(data.content);
+                }, 'json');
+            }
+        });
+
+
     });
 
 </script>

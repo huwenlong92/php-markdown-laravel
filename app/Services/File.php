@@ -26,7 +26,7 @@ class File
                 if ($file_path == self::REPO . '/readme.md') continue;
                 $list[$i] = [
                     'text' => $file,
-                    'href' => "/md?s=" . strstr($file_path, '/'),
+                    'href' => urlencode("#" . strstr($file_path, '/')),
                 ];
                 if (strpos($file, '.md')) {
                     $info = $this->getFileInfo($file_path);
