@@ -16,3 +16,5 @@ Route::get('/hi', function () {
 });
 
 Route::get('/', 'Front\IndexController@index');
+Route::get('/dir', 'Front\IndexController@dirList');
+Route::get('/md', 'Front\IndexController@repo');

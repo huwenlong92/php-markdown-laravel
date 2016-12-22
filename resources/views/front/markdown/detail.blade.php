@@ -7,7 +7,8 @@
     <title>子期 || 在线笔记 || Markdown</title>
     <link href="{{URL::asset('static/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('static/plugins/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('static/plugins/markdown/css/mou.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('static/plugins/bootstrap-tree/css/bootstrap-treeview.min.css')}}" rel="stylesheet">
+{{--    <link href="{{URL::asset('static/plugins/markdown/css/mou.css')}}" rel="stylesheet">--}}
     <link href="{{URL::asset('static/plugins/markdown/css/themes/default.css')}}" rel="stylesheet">
 </head>
 <body>
@@ -21,20 +22,9 @@
         </div>
     </div>
     <div class="row">
-        <ul class="nav nav-stacked col-lg-3" role="tablist">
-            @foreach ($dir_list as $key => $dir)
-                @if(is_array($dir))
-                    {{--<li role="presentation"><a href="#">{{$key}}</a></li>--}}
-                    {{--<ul class="nav nav-stacked col-lg-3" role="tablist">--}}
-                    {{--@foreach ($dir[0] as $di)--}}
-                    {{--<li role="presentation"><a href="#">{{$di[0]}}</a></li>--}}
-                    {{--@endforeach--}}
-                    {{--</ul>--}}
-                @else
-                    <li role="presentation"><a href="#">{{$dir}}</a></li>
-                @endif
-            @endforeach
-        </ul>
+        <div class="col-lg-3" id="treeview1">
+
+        </div>
         <div class="col-lg-9 content">
             {!! $content !!}
         </div>
@@ -45,9 +35,7 @@
         <div class="row footer-wrap">
             <div class="col-md-12 desc">
                 <p>
-                    <a href="/about"><strong>关于</strong></a>
-                    |
-                    <a href="/team"><strong>团队</strong></a>
+                    <a href="/"><strong>关于</strong></a>
                     |
                     <a target="_blank" href="https://github.com/huwenlong92">
                         <strong>
@@ -65,9 +53,26 @@
     </div>
 </footer>
 
+<script src="{{URL::asset('static/plugins/jquery/jquery-3.1.1.min.js')}}"></script>
 <script src="{{URL::asset('static/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{URL::asset('static/plugins/bootstrap-tree/js/bootstrap-treeview.min.js')}}"></script>
 <script src="{{URL::asset('static/plugins/markdown/js/highlight.pack.js')}}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    hljs.initHighlightingOnLoad();
+    $(function () {
+        $.get('/dir', {}, function (data) {
+            $('#treeview1').treeview({
+                color: "#428bca",
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                highlightSelected: true,
+                enableLinks: true,
+                data: data
+            });
+        }, 'json');
+    });
+
+</script>
 </body>
 </html>
 
