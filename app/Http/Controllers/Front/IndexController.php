@@ -19,7 +19,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $md_text = HFile::getFileInfo("readme.md");
+        $md_text = HFile::getFileInfo("repo/readme.md");
         $html_text = (new \Parsedown())->text($md_text['content']);
         return view('front/markdown/detail', ['content' => $html_text]);
     }
